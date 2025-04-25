@@ -1,0 +1,55 @@
+[
+  {
+    "id": "1",
+    "name": "ONG Vida Animal",
+    "description": "A ONG Vida Animal resgata e cuida de animais abandonados, oferecendo abrigo e cuidados veterinários.",
+    "location": "São Paulo, SP",
+    "backgroundImage": "/images/vida-animal.jpg",
+    "category": "animais",
+    "needs": [
+      {
+        "name": "Ração",
+        "quantity": 25
+      },
+      {
+        "name": "Medicamentos",
+        "quantity": 10
+      }
+    ],
+    "surplus": [
+      {
+        "name": "Cobertores",
+        "quantity": 15
+      }
+    ],
+    "socials": {
+      "instagram": "https://instagram.com/institutoesperanca",
+      "facebook": "https://facebook.com/institutoesperanca",
+      "website": "https://institutoesperanca.org"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Educar para o Futuro",
+    "description": "Promovemos a educação de crianças em situação de vulnerabilidade social, oferecendo materiais e reforço escolar.",
+    "location": "Belo Horizonte, MG",
+    "backgroundImage": "/images/educar-futuro.jpg",
+    "category": "educação",
+    "needs": [
+      {
+        "name": "Livros",
+        "quantity": 30
+      },
+      {
+        "name": "Mochilas",
+        "quantity": 20
+      }
+    ],
+    "surplus": [],
+    "socials": {
+      "instagram": "https://instagram.com/institutoesperanca",
+      "facebook": "https://facebook.com/institutoesperanca",
+      "website": "https://institutoesperanca.org"
+    }
+  }
+]

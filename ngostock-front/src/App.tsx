@@ -1,7 +1,15 @@
 import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OngProfile from "./pages/OngProfile";
 
-function App() {
-    return <Home />;
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/ong/:id" element={<OngProfile />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
-export default App;
