@@ -1,16 +1,17 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react"; // ícone de voltar
+import {useParams, useNavigate} from "react-router-dom";
+import {ArrowLeft} from "lucide-react"; // ícone de voltar
 // @ts-ignore
 import ongs from "../data/ongs.json";
-import { Ong } from "../types/Ong";
+import {Ong} from "../types/Ong";
 import {
-    FaFacebookF,
+    FaFacebook,
     FaInstagram,
-    FaGlobeAmericas,
+    FaGlobe,
+    FaWhatsapp,
 } from "react-icons/fa";
 
 export default function OngProfile() {
-    const { id } = useParams();
+    const {id} = useParams();
     const navigate = useNavigate();
 
     const ong: Ong | undefined = ongs.find((o) => o.id.toString() === id);
@@ -18,15 +19,25 @@ export default function OngProfile() {
     if (!ong) return <p className="p-6">ONG não encontrada.</p>;
 
     // @ts-ignore
+    // @ts-ignore
     return (
         <div className="p-6 max-w-4xl mx-auto">
-            <button
-                onClick={() => navigate("/")}
-                className="flex items-center text-blue-600 hover:underline mb-4"
-            >
-                <ArrowLeft className="w-4 h-4 mr-1" />
-                Voltar para a lista
-            </button>
+            <div className="flex justify-between items-center mb-4">
+                <button
+                    onClick={() => navigate("/")}
+                    className="flex items-center text-blue-600 hover:underline"
+                >
+                    <ArrowLeft className="w-4 h-4 mr-1" />
+                    Voltar para a lista
+                </button>
+
+                <button
+                    onClick={() => navigate(`/edit/${ong.id}`)}
+                    className="bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition"
+                >
+                    Edit NGO
+                </button>
+            </div>
 
             <div
                 className="h-64 rounded-2xl bg-cover bg-center mb-6"
@@ -50,7 +61,8 @@ export default function OngProfile() {
                                 title="Facebook"
                                 className="bg-white rounded-full p-2 transition-all duration-300"
                             >
-                                <FaFacebookF className="w-6 h-6 text-blue-600 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform" />
+                                <FaFacebook
+                                    className="w-6 h-6 text-blue-600 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700"/>
                             </a>
                         )}
                         {ong.socials?.instagram && (
@@ -61,7 +73,8 @@ export default function OngProfile() {
                                 title="Instagram"
                                 className="bg-white rounded-full p-2 transition-all duration-300"
                             >
-                                <FaInstagram className="w-6 h-6 text-pink-500 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform" />
+                                <FaInstagram
+                                    className="w-6 h-6 text-pink-500 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-600"/>
                             </a>
                         )}
                         {ong.socials?.website && (
@@ -72,10 +85,24 @@ export default function OngProfile() {
                                 title="Website"
                                 className="bg-white rounded-full p-2 transition-all duration-300"
                             >
-                                <FaGlobeAmericas className="w-6 h-6 text-gray-700 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform" />
+                                <FaGlobe
+                                    className="w-6 h-6 text-gray-700 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform hover:bg-gradient-to-r hover:from-gray-400 hover:to-gray-600"/>
+                            </a>
+                        )}
+                        {ong.socials?.phone && (
+                            <a
+                                href={`https://wa.me/${ong.socials.phone}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="WhatsApp"
+                                className="bg-white rounded-full p-2 transition-all duration-300"
+                            >
+                                <FaWhatsapp
+                                    className="w-6 h-6 text-green-500 hover:scale-110 hover:shadow-2xl hover:-translate-y-1 transform hover:bg-gradient-to-r hover:from-green-400 hover:to-green-600"/>
                             </a>
                         )}
                     </div>
+
                 </div>
             )}
 
@@ -89,7 +116,7 @@ export default function OngProfile() {
                     <ul className="list-disc list-inside">
                         {ong.needs.map((item, index) => (
                             <li key={index}>
-                                {item.name} : {item.quantity}
+                                {item.name}: {item.quantity} {item.unit ?? ""}
                             </li>
                         ))}
                     </ul>
@@ -104,7 +131,7 @@ export default function OngProfile() {
                     <ul className="list-disc list-inside">
                         {ong.surplus.map((item, index) => (
                             <li key={index}>
-                                {item.name} : {item.quantity}
+                                {item.name}: {item.quantity} {item.unit ?? ""}
                             </li>
                         ))}
                     </ul>

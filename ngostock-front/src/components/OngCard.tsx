@@ -23,11 +23,11 @@ export default function OngCard({ong}: { ong: Ong }) {
                 </p>
                 <p className="text-sm mb-1">
                     <strong>Necessita:</strong>{" "}
-                    {ong.needs.length > 0 ? ong.needs.map(n => n.item).join(", ") : "Nenhum item listado"}
+                    {ong.needs.length > 0 ? ong.needs.map(n => n.name).join(", ") : "Nenhum item listado"}
                 </p>
                 <p className="text-sm">
                     <strong>Sobrando:</strong>{" "}
-                    {ong.surplus.length > 0 ? ong.surplus.map(s => s.item).join(", ") : "Nenhum item listado"}
+                    {ong.surplus.length > 0 ? ong.surplus.map(s => s.name).join(", ") : "Nenhum item listado"}
                 </p>
             </div>
         </motion.div>

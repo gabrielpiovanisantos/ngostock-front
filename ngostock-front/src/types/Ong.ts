@@ -13,5 +13,6 @@ export interface Ong {
         facebook?: string;
         instagram?: string;
         website?: string;
+        phone?: string;
     };
 }

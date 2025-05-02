@@ -9,7 +9,8 @@
     "needs": [
       {
         "name": "Ração",
-        "quantity": 25
+        "quantity": 25,
+        "unit": "kg"
       },
       {
         "name": "Medicamentos",
@@ -25,7 +26,8 @@
     "socials": {
       "instagram": "https://instagram.com/institutoesperanca",
       "facebook": "https://facebook.com/institutoesperanca",
-      "website": "https://institutoesperanca.org"
+      "website": "https://institutoesperanca.org",
+      "phone": "111111111"
     }
   },
   {
@@ -49,7 +51,8 @@
     "socials": {
       "instagram": "https://instagram.com/institutoesperanca",
       "facebook": "https://facebook.com/institutoesperanca",
-      "website": "https://institutoesperanca.org"
+      "website": "https://institutoesperanca.org",
+      "phone": "111111111"
     }
   }
 ]
